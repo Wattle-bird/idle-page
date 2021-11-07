@@ -49,14 +49,14 @@
         for (let y = 0; y < HEIGHT; y++) {
           const sin = Math.sin
           let r = (sin(x/ 7 + t * 20) + sin(x/64 + y/12 + t*30) + sin(y/13 - x/25 + t*34) + sin(Math.sqrt(x+y+(t%30)) * 4)) * 64 + 30
-          let b = (sin(x/5 + t * 15) + sin(x/16 + y/7 + t*28) + sin(y/14 - x/20 + t*34) + sin(Math.sqrt(x+(t%35)) * 4)) * 64 + 60
+          let g = (sin(x/5 + t * 15) + sin(x/16 + y/7 + t*28) + sin(y/14 - x/20 + t*34) + sin(Math.sqrt(x+(t%35)) * 4)) * 64
 
-          if (x%2 && y%2) b+= 100;
+          if (x%2 && y%2) g+= 20;
           if ((x+1)%2 && (y+1)%2) r += 40;
 
           const offset = (x + y * WIDTH) * 4;
           imgData.data[offset] = r;
-          imgData.data[offset+2] = b;
+          imgData.data[offset+1] = g;
           imgData.data[offset+3] = 255;
         }
       }
